@@ -7,10 +7,10 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/angga.png" class="img-circle" alt="User Image" />
+              <img src="{{ asset('dist/img/angga.png') }}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -28,16 +28,19 @@
           <!-- /.search form -->
 
           <!-- Sidebar Menu -->
-          <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+          <ul class="sidebar-menu" id="nav">
+            <li><a href="{{ url('/') }}" target="_blank"><i class='fa fa-eye'></i> <span> View Site <i class="fa fa-external-link"></i></span></a></li>
+            <li class="header">DASHBOARD</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class='fa fa-link'></i> <span>Link</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>Another Link</span></a></li>
+            <li id="users"><a href="#"><i class='fa fa-users'></i> <span>Users</span></a></li>
+            <li id="category"><a href="{{ route('categories.index') }}"><i class='fa fa-tags'></i> <span>Category</span></a></li>
+            <li id="posts"><a href="{{ route('posts.index') }}"><i class='fa fa-newspaper-o'></i> <span>Posts</span></a></li>
+            <li id=""><a href="#"><i class='fa fa-comments'></i> <span>Comments</span></a></li>
             <li class="treeview">
-              <a href="#"><i class='fa fa-link'></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class='fa fa-cog'></i> <span>Setting</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
+                <li id="general"><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
+                <li id="profil"><a href="#"><i class="fa fa-circle-o"></i> Profil</a></li>
               </ul>
             </li>
           </ul><!-- /.sidebar-menu -->

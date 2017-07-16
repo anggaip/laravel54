@@ -16,11 +16,19 @@
         <form action="{{ route('register') }}" method="post">
             {{ csrf_field() }}
           <div class="form-group has-feedback">
-            <input type="text" name="name" class="form-control" placeholder="Full name" required/>
+            <input type="text" name="firstname" class="form-control" placeholder="First Name" value="{{ old('firstname') }}" required/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="email" name="email" class="form-control" placeholder="Email" required/>
+            <input type="text" name="lastname" class="form-control" placeholder="Last Name" value="{{ old('lastname') }}" required/>
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="text" name="username" class="form-control" placeholder="Username" value="{{ old('username') }}" required/>
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">

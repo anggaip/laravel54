@@ -2,11 +2,11 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="{{ url('/') }}" class="logo">
+        <a href="{{ route('home') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>L</b>CD</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Larva</b>CODE</span>
+          <span class="logo-lg"><b>{{ substr(config('app.name'), 0, 3) }}</b>{{ substr(config('app.name'), 3) }}</span>
         </a>
 
         <!-- Header Navbar -->
@@ -34,7 +34,7 @@
                         <a href="#">
                           <div class="pull-left">
                             <!-- User Image -->
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                            <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image"/>
                           </div>
                           <!-- Message title and timestamp -->
                           <h4>
@@ -113,17 +113,17 @@
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="dist/img/angga.png" class="user-image" alt="User Image"/>
+                  <img src="{{ asset('dist/img/angga.png') }}" class="user-image" alt="User Image"/>
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                  <span class="hidden-xs">{{ Auth::user()->username }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="{{ asset('dist/img/angga.png') }}" class="img-circle" alt="User Image" />
                     <p>
                       {{ Auth::user()->name }} - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      <small>Member since {{ date('M. Y', strtotime(Auth::user()->created_at)) }}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
